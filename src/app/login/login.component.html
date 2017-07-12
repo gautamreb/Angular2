@@ -1,0 +1,35 @@
+<body class="login-img3-body" style="height:565px">
+<div class="container" style="height:200px;"> 
+            <div class="login-form" >        
+                    <div class="mno"><h5>MNO LOGIN</h5></div>
+                    <p class="login-img"><i class="&#x73;"></i></p>
+                    <div class="result" id="result" style="text-align:center; color:#CF0000;"></div> 
+                    
+                    <form #loginForm="ngForm" (ngSubmit)="onSubmit(userId.value,password.value)">
+                        <h3 style="color:red;">{{messageDesc}}</h3>
+                        <div class="form-group">
+                            <span class="input-group-addon"><i class="icon_profile"></i></span>
+                            <input type="text" #userId="ngModel" (keyup)="onKeyup1($event)" minlength="6" required class="form-control" name="userId" ngModel  autofocus>
+                                <div *ngIf="userId.errors && (userId.dirty || userId.touched)" class="alert alert-danger">
+                                    <div [hidden]="!userId.errors.required">
+                                        Please enter UserId
+                                    </div>
+                                    <div [hidden]="!userId.errors.minlength">
+                                        Please enter atleast 6 charecters
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+                            <input type="password" #password="ngModel" (keyup)="onKeyup2($event)" class="form-control" name="password" ngModel>
+                        </div>
+                        <label class="checkbox">
+                            <input type="checkbox" value="remember-me"><span id="rem">Remember me</span>
+                            <span class="pull-right" > <a href="forgot_password.jsp" id="forgot"> Forgot Password?</a></span>
+                        </label>
+                    <!--<button [routerLink]="['/chart']" type="submit" class="btn btn-primary">submit</button>-->
+             <button type="submit" class="btn btn-primary btn-sm btn-block">Login</button>
+                </form>
+            </div> 
+        </div> 
+</body>
